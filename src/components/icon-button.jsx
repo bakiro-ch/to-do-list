@@ -17,7 +17,8 @@ export default function IconButtons({color=null,children}) {
     function handleCompleted(){
         if(color=="green"){
         setCards((prev)=>prev.map((e)=>e.id===card.id?{...e,isCompleted:!e.isCompleted}:e))
-        console.log(card.id,card.title,card.isCompleted)}
+        // console.log(card.id,card.title,card.isCompleted)
+    }
         else if(color=="red"){
             // setCards((prev)=>prev.filter((e)=>e.id!=card.id))
             setDeleted(true)

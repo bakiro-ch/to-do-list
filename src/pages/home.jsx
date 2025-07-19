@@ -31,10 +31,12 @@ export default function Home() {
           <VariantButtonGroup array={buttonGroup} />
           {cards.map((card) => {
             if(filter==="done"){
-              return card.isCompleted?<BasicCard key={card.id} card={card}/>:<></>
+              if(card.isCompleted)
+              return <BasicCard key={card.id} card={card}/>
             }
             else if(filter==="undone"){
-              return !card.isCompleted?<BasicCard key={card.id} card={card}/>:<></>
+              if(card.isCompleted==false)
+              return <BasicCard key={card.id} card={card}/>
             }
             else return <BasicCard key={card.id} card={card}/>
 })}

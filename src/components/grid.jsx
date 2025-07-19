@@ -1,7 +1,6 @@
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import { Box } from '@mui/material';
-import { red } from '@mui/material/colors';
+import { Box, Stack } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
@@ -21,7 +20,7 @@ export default function FullWidthGrid() {
     }
     function ButtonSizes() {
         return (
-            <Button disabled={input.length<2?true:false} onClick={handleClick} size="Large" sx={{padding:"15px",fontWeight:'bold' ,width:'100%',color:'white'}} >إضافة</Button>
+      <Button disabled={input.length<1?true:false} sx={{width:'100%',padding:"15px",fontWeight:'bold'}} onClick={handleClick} variant="contained">إضافة</Button>
         );
         
 }
@@ -36,7 +35,7 @@ export default function FullWidthGrid() {
                         label="عنوان المهمة" variant="outlined" className='w-full' />
                     {/* <input style={{width:'100%',height:'100%',border:'1.5px solid black', borderRadius:'5px',outline:'none',padding:'0px 5px'}} type="text" /> */}
                 </Grid>
-                <Grid size={4} sx={{borderRadius:"5px",bgcolor:red[900]}} color='primary'>
+                <Grid size={4} sx={{borderRadius:"5px"}} color='primary'>
                     <ButtonSizes  />
                 </Grid>
             </Grid>

@@ -1,3 +1,4 @@
+import { blue } from '@mui/material/colors';
 import './App.css'
 import Home from './pages/home'
 import { createTheme,ThemeProvider } from '@mui/material/styles';
@@ -8,7 +9,7 @@ const theme = createTheme({
   ]},
   palette:{
     primary:{
-      main:'#6200ea'
+      main:blue['A200']
     }
   }
 });

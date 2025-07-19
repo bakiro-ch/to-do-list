@@ -10,7 +10,6 @@ export default function BasicButtons({children}) {
   const card = useContext(cardContext)
   function handleCompleted(){
     setCards((prev)=>prev.map((e)=>e.id===card.id?{...e,isCompleted:!e.isCompleted}:e))
-    console.log(card.id,card.title,card.isCompleted)
   }
   return (
       <Button onClick={handleCompleted} variant="text">{children}</Button>
