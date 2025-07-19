@@ -20,9 +20,8 @@ export default function FullWidthGrid() {
             setInput("")}
     }
     function ButtonSizes() {
-        
         return (
-            <Button onClick={handleClick} size="Large" sx={{padding:"15px",fontWeight:'bold' ,width:'100%',color:'white'}} >إضافة</Button>
+            <Button disabled={input.length<2?true:false} onClick={handleClick} size="Large" sx={{padding:"15px",fontWeight:'bold' ,width:'100%',color:'white'}} >إضافة</Button>
         );
         
 }
@@ -37,8 +36,8 @@ export default function FullWidthGrid() {
                         label="عنوان المهمة" variant="outlined" className='w-full' />
                     {/* <input style={{width:'100%',height:'100%',border:'1.5px solid black', borderRadius:'5px',outline:'none',padding:'0px 5px'}} type="text" /> */}
                 </Grid>
-                <Grid size={4} sx={{borderRadius:"5px",bgcolor:red[900]}} bgcolor={red[900]}>
-                    <ButtonSizes />
+                <Grid size={4} sx={{borderRadius:"5px",bgcolor:red[900]}} color='primary'>
+                    <ButtonSizes  />
                 </Grid>
             </Grid>
         </Box>

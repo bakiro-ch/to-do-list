@@ -15,8 +15,8 @@ export default function BasicCard({card}) {
 return (
     <cardContext.Provider value={card}>
         <Card className='hover:py-2 duration-300 transition-all!' sx={{ bgcolor: blue[900], marginTop:'20px', minWidth: 275, display:'flex', justifyContent:'space-between' }}>
-            <CardContent>
-                <Typography className=' font-bold!'  variant='h4' color='white'>
+            <CardContent >
+                <Typography sx={{textDecorationLine:card.isCompleted?'line-through':'none'}} className='font-bold!'  variant='h4' color='white'>
                     {card.title}
                 </Typography>
                 <Typography gutterBottom sx={{color:grey[300],fontSize:'17px', marginTop:"5px"}}>
