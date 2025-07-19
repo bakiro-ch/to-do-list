@@ -5,7 +5,6 @@ import { filterContext } from '../context/context';
 import { useContext } from 'react';
 
 export default function VariantButtonGroup({array}) {
-    
     const {filter,setFilter} = useContext(filterContext)
     function handleFilter(element){
         if(element==='منجز'){
