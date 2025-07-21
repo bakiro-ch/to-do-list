@@ -5,14 +5,14 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useState } from 'react';
+import { useState,useMemo } from 'react';
 import { cardsContext } from '../context/context';
 import { useContext } from 'react';
 
 export default function FormDialog({card,isEdited,setEdited}) {
     const {cards,setCards} = useContext(cardsContext)
     const [open, setOpen] = useState(true);
-    const [inputs,setInputs] = useState({title:"",note:""})
+    const [inputs,setInputs] = useState({title:card.title?card.title:"",note:card.note?card.note:""})
     
     const handleClose = () => {
     setOpen(false);
@@ -28,7 +28,6 @@ export default function FormDialog({card,isEdited,setEdited}) {
         // console.log(email);
         handleClose();
     };
-    
 return (
     <>
         <Dialog style={{direction:'rtl'}} open={open} onClose={handleClose}>
