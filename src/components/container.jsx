@@ -3,8 +3,8 @@ import Container from '@mui/material/Container';
 
 export default function SimpleContainer({children}) {
 return (
-    <Box className='bg-gray-900 min-h-screen p-10 flex items-center'>
-        <Container className='pb-6 max-h-[80vh] overflow-scroll shadow-md min-h-70 rounded-lg ' maxWidth="sm" sx={{ bgcolor: 'white' }}>
+    <Box className='bg-gray-900 min-h-screen flex items-center'>
+        <Container className='pb-6 sm:max-h-[90vh] overflow-auto shadow-md rounded-lg ' maxWidth="sm" sx={{ bgcolor: 'white' }}>
             {children}
         </Container>
     </Box>

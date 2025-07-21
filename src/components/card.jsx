@@ -14,16 +14,16 @@ export default function BasicCard({card}) {
 
 return (
     <cardContext.Provider value={card}>
-        <Card className='hover:py-2 duration-300 transition-all!' sx={{ bgcolor: '#0d47a1', marginTop:'20px', minWidth: 275, display:'flex', justifyContent:'space-between' }}>
-            <CardContent >
-                <Typography sx={{textDecorationLine:card.isCompleted?'line-through':'none'}} className='font-bold!'  variant='h4' color='white'>
+        <Card className=' hover:py-2 duration-300 transition-all! sm:grid-cols-3 grid grid-cols-2' sx={{ bgcolor: '#0d47a1', marginTop:'20px' }}>
+            <CardContent className='col-span-1 sm:col-span-2' >
+                <Typography sx={{textDecorationLine:card.isCompleted?'line-through':'none',wordBreak:'break-word'}} className='font-bold! '  variant='h4' color='white'>
                     {card.title}
                 </Typography>
                 <Typography gutterBottom sx={{color:grey[300],fontSize:'17px', marginTop:"5px"}}>
                     {card.note}
                 </Typography>
             </CardContent>
-            <CardActions sx={{gap:"20px"}}>
+            <CardActions className='flex-wrap justify-evenly'>
                 {/* sx={{ bgcolor:card.isCompleted?'green':'white', border:`1.5px solid ` }} */}
                 <IconButtons color={'green'}>
                     <DoneOutlineOutlinedIcon sx={{color:card.isCompleted?'white':'green'}}/>

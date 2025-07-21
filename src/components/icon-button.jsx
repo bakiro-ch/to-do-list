@@ -37,8 +37,8 @@ export default function IconButtons({color=null,children}) {
 return (
     <>
         <IconButton onClick={handleCompleted} 
-            sx={{border: `2px solid ${color}`, bgcolor:color=='green'&&card.isCompleted?'green':'white'}} 
-            className='transition-all! hover:shadow-xl/30 duration-700' aria-label="delete">
+            sx={{border: `2px solid ${color}`,marginLeft:color=='green'?'8px':'0px', bgcolor:color=='green'&&card.isCompleted?'green':'white'}} 
+            className='transition-all! hover:shadow-xl/30 duration-700'>
             {children}
         </IconButton>
         {isEdited?<FormDialog card={card} isEdited={isEdited} setEdited={setEdited}/>:<></>}
