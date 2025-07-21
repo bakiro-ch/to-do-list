@@ -19,7 +19,7 @@ return (
                 <Typography sx={{textDecorationLine:card.isCompleted?'line-through':'none',wordBreak:'break-word'}} className='font-bold! '  variant='h4' color='white'>
                     {card.title}
                 </Typography>
-                <Typography gutterBottom sx={{color:grey[300],fontSize:'17px', marginTop:"5px"}}>
+                <Typography gutterBottom sx={{textDecorationLine:(!card.title || card.title.trim() === "")&&card.isCompleted?'line-through':'none',color:grey[300],fontSize:'17px', marginTop:"5px"}}>
                     {card.note}
                 </Typography>
             </CardContent>

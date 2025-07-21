@@ -12,7 +12,11 @@ import { useContext } from 'react';
 export default function FormDialog({card,isEdited,setEdited}) {
     const {cards,setCards} = useContext(cardsContext)
     const [open, setOpen] = useState(true);
-    const [inputs,setInputs] = useState({title:card.title?card.title:"",note:card.note?card.note:""})
+    const [inputs,setInputs] = useState({
+        title: card.title,
+        note: card.note,
+    })
+    const [error,setError] = useState(false)
     
     const handleClose = () => {
     setOpen(false);
@@ -21,12 +25,13 @@ export default function FormDialog({card,isEdited,setEdited}) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setCards((prev)=>prev.map((e)=>e.id===card.id?{...e,title:inputs.title!=""?inputs.title:e.title,note:inputs.note!=""?inputs.note:e.note}:e))
-        // const formData = new FormData(event.currentTarget);
-        // const formJson = Object.fromEntries(formData.entries());
-        // const email = formJson.email;
-        // console.log(email);
+        if(inputs.note.trim()||inputs.title.trim()){
+        setCards((prev)=>prev.map((e)=>e.id===card.id?{...e,title:inputs.title.trim()||inputs.note.trim()?inputs.title:card.title,
+            note:inputs.note.trim()||inputs.title.trim()?inputs.note:card.note}:e))
         handleClose();
+        setError(false)
+}
+        else setError(true)
     };
 return (
     <>
@@ -61,6 +66,7 @@ return (
                         fullWidth
                         variant="standard"
                     />
+                    {error?<div className='text-red-600 text-shadow-sm'>اسف لا يمكنك اضافة مهمة فارغة</div>:<></>}
                     <DialogActions>
                         <Button onClick={handleClose}>إغلاق</Button>
                         <Button type="submit">حفظ التغيرات</Button>

@@ -10,13 +10,20 @@ import { cardsContext } from '../context/context';
 export default function FullWidthGrid() {
     const {cards,setCards} = useContext(cardsContext)
     const [input,setInput] = useState("")
+    const [error,setError] = useState(false)
     function handleInput(event){
         return setInput(event)
     }
     function handleClick(){
-        if(input){
+        if(input.trim()){
             setCards([...cards,{id:uuidv4(),title:input,note:null,isCompleted:false}])
-            setInput("")}
+            setInput("")
+            setError(false)
+        }
+        else {
+            setError(true)
+            // alert('you cant add an empty task')
+        }
     }
     function ButtonSizes() {
         return (
@@ -39,6 +46,7 @@ export default function FullWidthGrid() {
                 <Grid size={4} sx={{borderRadius:"5px"}} color='primary'>
                     <ButtonSizes  />
                 </Grid>
+                {error?<div className='text-red-600 text-shadow-sm'>لا يمكنك اضافة مهمة فارغة</div>:<></>}
             </Grid>
         </Box>
     );
