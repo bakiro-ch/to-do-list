@@ -1,8 +1,10 @@
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
-import { filterContext } from '../context/context';
 import { useContext } from 'react';
+
+import { filterContext } from '../context/context';
+
 
 export default function VariantButtonGroup({array}) {
     const {filter,setFilter} = useContext(filterContext)

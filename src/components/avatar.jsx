@@ -1,6 +1,8 @@
 import Avatar from '@mui/material/Avatar';
-import { cardContext } from '../context/context';
 import { useContext } from 'react';
+
+import { cardContext } from '../context/context';
+
 
 export default function LetterAvatars({color=null,children}) {
     const card = useContext(cardContext)

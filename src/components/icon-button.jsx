@@ -1,10 +1,10 @@
 import IconButton from '@mui/material/IconButton';
-import { cardsContext } from '../context/context';
-import { cardContext } from '../context/context';
 import { useContext, useState } from 'react';
+
+import { cardsContext,cardContext } from '../context/context';
 import FormDialog from './editing';
 import AlertDialog from './alert';
-// import editing from './editing';
+import { snackbarContext } from '../context/snackbarContext';
 
 
 export default function IconButtons({color=null,children}) {
@@ -12,10 +12,20 @@ export default function IconButtons({color=null,children}) {
     const [isEdited,setEdited] = useState(false)
     const [deleted,setDeleted] = useState(false)
     const card = useContext(cardContext)
+    const {setMessage,setOpen} = useContext(snackbarContext)
     
     function handleCompleted(){
         if(color=="green"){
         setCards((prev)=>prev.map((e)=>e.id===card.id?{...e,isCompleted:!e.isCompleted}:e))
+        if(!card.isCompleted){
+            setMessage("تمت الإضافة الى المهام المنجزة")
+            setOpen(true)
+            setTimeout(()=>setOpen(false),3000)
+        }else{
+            setMessage("تم الحذف من المهام المنجزة")
+            setOpen(true)
+            setTimeout(()=>setOpen(false),3000)
+        }
         // console.log(card.id,card.title,card.isCompleted)
     }
         else if(color=="red"){

@@ -1,7 +1,10 @@
 import { blue } from '@mui/material/colors';
-import './App.css'
-import Home from './pages/home'
 import { createTheme,ThemeProvider } from '@mui/material/styles';
+
+import Home from './pages/home'
+
+import './App.css'
+
 
 const theme = createTheme({
   typography:{fontFamily:[

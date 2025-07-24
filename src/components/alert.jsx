@@ -4,28 +4,34 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useState } from 'react';
-import { cardsContext } from '../context/context';
-import { useContext } from 'react';
+import { useState,useContext } from 'react';
 
-export default function AlertDialog({card,deleted,setDeleted}) {
+import { cardsContext } from '../context/context';
+import { snackbarContext } from '../context/snackbarContext';
+
+
+export default function AlertDialog({card,setDeleted}) {
     const {cards,setCards} = useContext(cardsContext)
-    const [open, setOpen] = useState(true);
+    const [Delete, SetDelete] = useState(true);
+    const {open,setOpen,message,setMessage} = useContext(snackbarContext) 
     
     const handleClose = () => {
-        setOpen(false);
+        SetDelete(false);
         setDeleted(false);
     };
     const handleDelete= () =>{
         handleClose()
         setCards((prev)=>prev.filter((e)=>e.id!=card.id))
+        setMessage("تم الحذف بنجاح")
+        setOpen(true)
+        setTimeout(()=>setOpen(false),3000)
     }
 
   return (
     <>
       <Dialog
         style={{direction:'rtl'}}
-        open={open}
+        open={Delete}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"

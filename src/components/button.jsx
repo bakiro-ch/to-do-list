@@ -1,7 +1,8 @@
 import Button from '@mui/material/Button';
-import { cardsContext } from '../context/context';
-import { cardContext } from '../context/context';
 import { useContext } from 'react';
+
+import { cardsContext,cardContext } from '../context/context';
+
 
 export default function BasicButtons({children}) {
   const {cards,setCards} = useContext(cardsContext)

@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
+
 export default function SimpleContainer({children}) {
 return (
     <Box className='bg-gray-900 min-h-screen flex items-center'>

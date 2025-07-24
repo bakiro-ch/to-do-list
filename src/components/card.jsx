@@ -6,8 +6,10 @@ import { blue,grey } from '@mui/material/colors';
 import DoneOutlineOutlinedIcon from '@mui/icons-material/DoneOutlineOutlined';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+
 import IconButtons from './icon-button';
 import { cardContext } from '../context/context';
+
 
 export default function BasicCard({card}) {
     // console.log(cards,cardContext)
@@ -19,7 +21,7 @@ return (
                 <Typography sx={{textDecorationLine:card.isCompleted?'line-through':'none',wordBreak:'break-word'}} className='font-bold! '  variant='h4' color='white'>
                     {card.title}
                 </Typography>
-                <Typography gutterBottom sx={{textDecorationLine:(!card.title || card.title.trim() === "")&&card.isCompleted?'line-through':'none',color:grey[300],fontSize:'17px', marginTop:"5px"}}>
+                <Typography gutterBottom sx={{textDecorationLine:(!card.title || card.title.trim() === "")&&card.isCompleted?'line-through':'none',wordBreak:'break-word',color:grey[300],fontSize:'17px', marginTop:"5px"}}>
                     {card.note}
                 </Typography>
             </CardContent>

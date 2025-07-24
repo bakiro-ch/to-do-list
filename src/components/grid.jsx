@@ -2,15 +2,19 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { Box, Stack } from '@mui/material';
 import TextField from '@mui/material/TextField';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { useContext } from 'react';
+
 import { cardsContext } from '../context/context';
+import { snackbarContext } from '../context/snackbarContext';
+
 
 export default function FullWidthGrid() {
+    const {open,setOpen,message,setMessage} = useContext(snackbarContext)
     const {cards,setCards} = useContext(cardsContext)
     const [input,setInput] = useState("")
     const [error,setError] = useState(false)
+
     function handleInput(event){
         return setInput(event)
     }
@@ -19,6 +23,9 @@ export default function FullWidthGrid() {
             setCards([...cards,{id:uuidv4(),title:input,note:null,isCompleted:false}])
             setInput("")
             setError(false)
+            setMessage("تمت الإضافة بنجاح")
+            setOpen(true)
+            setTimeout(()=>setOpen(false),3000)
         }
         else {
             setError(true)
